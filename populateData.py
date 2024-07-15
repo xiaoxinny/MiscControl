@@ -6,7 +6,6 @@ Tutorial Group: 6, IT2306
 
 from Stationary import *
 import datetime
-import Stationary as Stationary
 
 # Global parameters
 prodList = []
@@ -60,7 +59,7 @@ def add_new_stationary():
 
         stock = input("Enter Stock: ")
 
-        newStud = Stationary.Stationary(prod_id, prodname, category, brand, supplier_since, stock)
+        newStud = Stationary(prod_id, prodname, category, brand, supplier_since, stock)
         return newStud
 
     except TypeError:
