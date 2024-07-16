@@ -6,15 +6,14 @@ Tutorial Group: 6, IT2306
 
 from Sorting import *
 from populateData import *
-from Restocking import *
 
 # Global parameters
 items_per_row = 1
 limit = 40 - items_per_row * 5
 
 
-# Main menu when program is initiated
-def main():
+# Menu when program is initiated
+def main_menu():
     while True:
         print("Stationary Management System")
         print("1. Add a new Stationary\n"
@@ -43,7 +42,9 @@ def main():
                 case 6:
                     category_merge_sort()
                 case 7:
+                    from Restocking import restocking_menu
                     restocking_menu()
+                    break
                 case 8:
                     row_display_count()
                 case 9:
@@ -55,7 +56,7 @@ def main():
                     print("Your choice isn't in the list. Please try again.")
         except ValueError:
             print("Your choice is not an integer. Please try again.")
-            main()
+            main_menu()
         except Exception as e:
             raise e
 
@@ -102,63 +103,24 @@ It ensures that the number of items printed per row conforms to the parameters.
 Counter keeps track of the current printed items. 
 If the next iteration of rows exceed the limit, it wraps around to a new one.
 """
+
+
 def rec_output_printer(counter=0):
     length = len(prodList)
-    if counter + items_per_row < length:
-        for item in prodList[counter: counter + items_per_row]:         # Print IDs
-            data = item.return_data()
-            length_checker(data[0])
-        print("\n")
-        for item in prodList[counter: counter + items_per_row]:         # Print name
-            data = item.return_data()
-            length_checker(data[1])
-        print("\n")
-        for item in prodList[counter: counter + items_per_row]:         # Print category
-            data = item.return_data()
-            length_checker(data[2])
-        print("\n")
-        for item in prodList[counter: counter + items_per_row]:         # Print brand
-            data = item.return_data()
-            length_checker(data[3])
-        print("\n")
-        for item in prodList[counter: counter + items_per_row]:         # Print supplier since
-            data = item.return_data()
-            length_checker(data[4])
-        print("\n")
-        for item in prodList[counter:counter + items_per_row]:          # Print stock
-            data = item.return_data()
-            length_checker(data[5])
-        print("\n")
+    if counter < length:
+        end = min(counter + items_per_row, length)
+
+        fields = [0, 1, 2, 3, 4, 5]  # Indices of the data fields to be printed
+        for field in fields:
+            for item in prodList[counter:end]:
+                data = item.return_data()
+                length_checker(data[field])
+            print("\n")
+
         print("*" * limit * items_per_row)
+
         counter += items_per_row
         return rec_output_printer(counter)
-    else:
-        remaining = counter + (length - counter)
-        for item in prodList[counter:remaining]:            # Print IDs
-            data = item.return_data()
-            length_checker(data[0])
-        print("\n")
-        for item in prodList[counter:remaining]:            # Print name
-            data = item.return_data()
-            length_checker(data[1])
-        print("\n")
-        for item in prodList[counter:remaining]:            # Print category
-            data = item.return_data()
-            length_checker(data[2])
-        print("\n")
-        for item in prodList[counter:remaining]:            # Print brand
-            data = item.return_data()
-            length_checker(data[3])
-        print("\n")
-        for item in prodList[counter:remaining]:            # Print supplier since
-            data = item.return_data()
-            length_checker(data[4])
-        print("\n")
-        for item in prodList[counter:remaining]:            # Print stock
-            data = item.return_data()
-            length_checker(data[5])
-        print("\n")
-        print("*" * limit * items_per_row)
 
 
-main()
+main_menu()

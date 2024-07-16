@@ -61,7 +61,7 @@ class Stationary:
                 f"Product Category: {self.category}\n"
                 f"Brand: {self.brand}\n"
                 f"Supplier Year: {self.supplier_since}\n"
-                f"Stock: {self.stock}")
+                f"Stock Remaining: {self.stock}")
 
     def return_data(self):
         return [f"Product ID: {self.prod_id}",
@@ -69,4 +69,4 @@ class Stationary:
                 f"Product Category: {self.category}",
                 f"Brand: {self.brand}",
                 f"Supplier Year: {self.supplier_since}",
-                f"Stock: {self.stock}"]
+                f"Stock Remaining: {self.stock}"]

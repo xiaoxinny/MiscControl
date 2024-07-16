@@ -97,12 +97,6 @@ def populateData():
 def checker(data, field):
     for item in prodList:
         if field == "id":
-            if item.get_prod_id() == data:
-                return True
-            else:
-                return False
+            return item.get_prod_id() == data
         elif field == "name":
-            if item.get_prodname() == data:
-                return True
-            else:
-                return False
+            return item.get_prodname() == data
