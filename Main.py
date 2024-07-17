@@ -21,7 +21,7 @@ def main_menu():
               "3. Sort Stationary via Bubble sort on Category\n"
               "4. Sort Stationary via Insertion sort on Brand\n"
               "5. Sort Stationary via Selection sort on Prod ID\n"
-              "6. Sort Stationary via Merge sort on Category followed by Stock in descending order\n"
+              "6. Sort Stationary via Merge sort on Category followed by Stock in ascending order\n"
               "7. Go to Restocking Menu\n"
               "8. Set number of records per row to display\n"
               "9. Populate Data\n"
@@ -38,9 +38,9 @@ def main_menu():
                 case 4:
                     brand_insertion_sort()
                 case 5:
-                    prodId_selection_sort()
+                    prod_id_selection_sort()
                 case 6:
-                    category_merge_sort()
+                    category_merge_sort(prodList)
                 case 7:
                     from Restocking import restocking_menu
                     restocking_menu()

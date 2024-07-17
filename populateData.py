@@ -93,10 +93,10 @@ def populateData():
 
 
 # Miscellaneous. Don't touch.
-# Supplementary to Option 1
+# Supplementary to Option 1f
 def checker(data, field):
     for item in prodList:
         if field == "id":
             return item.get_prod_id() == data
         elif field == "name":
-            return item.get_prodname() == data
+            return item.get_prod_name() == data

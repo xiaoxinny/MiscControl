@@ -1,10 +1,10 @@
 class RestockingQ:
-    #Creates an empty Queue.
-    def __init__(self, maxSize):
+    # Creates an empty Queue.
+    def __init__(self, max_size):
         self._count = 0
         self._front = 0
-        self._back = maxSize - 1
-        self._qArray = [None] * maxSize
+        self._back = max_size - 1
+        self._qArray = [None] * max_size
 
     # Returns True if the queue is empty.
     def isEmpty(self):
@@ -27,8 +27,8 @@ class RestockingQ:
     # Adds the given item to the queue.
     def enqueue(self, item):
         assert not self.isFull(), "Cannot enqueue to a full queue."
-        maxSize = len(self._qArray)
-        self._back = (self._back + 1) % maxSize
+        max_size = len(self._qArray)
+        self._back = (self._back + 1) % max_size
         self._qArray[self._back] = item
         self._count += 1
 
@@ -36,16 +36,16 @@ class RestockingQ:
     def dequeue(self):
         assert not self.isEmpty(), "Cannot dequeue from an empty queue."
         item = self._qArray[self._front]
-        maxSize = len(self._qArray)
-        self._front = (self._front + 1) % maxSize
+        max_size = len(self._qArray)
+        self._front = (self._front + 1) % max_size
         self._count -= 1
         return item
 
-    # Return the content of the queue (with array index in square # brackets].
+    # Return the content of the queue (with array index in square # brackets).
     def __str__(self):
-        maxSize = len(self._qArray)
-        outStr = ''
+        max_size = len(self._qArray)
+        out_str = ''
         for i in range(self._count):
-            outStr += ('[' + str((self._front + i) % maxSize) + ']:')
-            outStr += (str(self._qArray[(self._front + i) % maxSize]) + ' ')
-        return outStr
+            out_str += ('[' + str((self._front + i) % max_size) + ']:')
+            out_str += (str(self._qArray[(self._front + i) % max_size]) + ' ')
+        return out_str

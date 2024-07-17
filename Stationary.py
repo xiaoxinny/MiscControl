@@ -7,21 +7,21 @@ Tutorial Group: 6, IT2306
 
 class Stationary:
 
-    def __init__(self, Prod_id, ProdName, Category, Brand, Supplier_since, Stock):
-        self.prod_id = Prod_id
-        self.prodname = ProdName
-        self.category = Category
-        self.brand = Brand
-        self.supplier_since = Supplier_since
-        self.stock = Stock
+    def __init__(self, prod_id, prod_name, category, brand, supplier_since, stock):
+        self.prod_id = prod_id
+        self.prod_name = prod_name
+        self.category = category
+        self.brand = brand
+        self.supplier_since = supplier_since
+        self.stock = stock
 
     # Accessor
 
     def get_prod_id(self):
         return self.prod_id
 
-    def get_prodname(self):
-        return self.prodname
+    def get_prod_name(self):
+        return self.prod_name
 
     def get_category(self):
         return self.category
@@ -40,8 +40,8 @@ class Stationary:
     def set_prod_id(self, new_id):
         self.prod_id = new_id
 
-    def set_prodname(self, new_name):
-        self.prodname = new_name
+    def set_prod_name(self, new_name):
+        self.prod_name = new_name
 
     def set_category(self, new_cat):
         self.category = new_cat
@@ -57,7 +57,7 @@ class Stationary:
 
     def __str__(self):
         return (f"Product ID: {self.prod_id}\n"
-                f"Product Name: {self.prodname}\n"
+                f"Product Name: {self.prod_name}\n"
                 f"Product Category: {self.category}\n"
                 f"Brand: {self.brand}\n"
                 f"Supplier Year: {self.supplier_since}\n"
@@ -65,7 +65,7 @@ class Stationary:
 
     def return_data(self):
         return [f"Product ID: {self.prod_id}",
-                f"Product Name: {self.prodname}",
+                f"Product Name: {self.prod_name}",
                 f"Product Category: {self.category}",
                 f"Brand: {self.brand}",
                 f"Supplier Year: {self.supplier_since}",

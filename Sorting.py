@@ -48,7 +48,7 @@ def brand_insertion_sort():
 
 # Option 5 - Sort Stationary via Selection sort on Prod ID
 # Note - This is descending order
-def prodId_selection_sort():
+def prod_id_selection_sort():
     n = len(prodList)
     for i in range(n - 1):
         large = i
@@ -69,21 +69,23 @@ def prodId_selection_sort():
 
 
 # Option 6 - Sort Stationary via Merge sort on Category followed by Stock in descending order
-def category_merge_sort():
-    if len(prodList) < 2:
-        return prodList
+def category_merge_sort(data):
+    if len(data) < 2:
+        return data
 
     else:
         # Compute the mid point
-        mid = len(prodList) // 2
+        mid = len(data) // 2
 
         # Split the list and perform recursive step
-        left = category_merge_sort(prodList[:mid])
-        right = category_merge_sort(prodList[mid:])
+        left = category_merge_sort(data[:mid])
+        right = category_merge_sort(data[mid:])
 
         # Merge the lists
         newList = mergeSortedLists(left, right)
-        return newList
+        data.clear()
+        data.extend(newList)
+        return data
 
 
 # Merge two sorted lists to create and return a new sorted list
@@ -95,7 +97,10 @@ def mergeSortedLists(listA, listB):
 
     # Merge the two lists together until one is empty
     while a < len(listA) and b < len(listB):
-        if listA[a] < listB[b]:
+        if listA[a].get_category() < listB[b].get_category():
+            newList.append(listA[a])
+            a += 1
+        elif listA[a].get_stock() < listB[b].get_stock() and listA[a].get_category() == listB[b].get_category():
             newList.append(listA[a])
             a += 1
         else:
@@ -108,8 +113,13 @@ def mergeSortedLists(listA, listB):
         a += 1
 
     # If listB contains more items, append remaining items to newList
-    while b < len(listA):
+    while b < len(listB):
         newList.append(listB[b])
         b += 1
 
+    print("New List:")
+    print("-" * 25)
+    for item in newList:
+        print("Prod ID: ", item.get_prod_id(), end="\n")
+    print("-" * 25)
     return newList
