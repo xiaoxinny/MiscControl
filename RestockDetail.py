@@ -1,3 +1,10 @@
+"""
+Name: Yi Jiaxin
+Student Number: 233517S
+Tutorial Group: 6, IT2306
+"""
+
+
 class RestockDetail:
     def __init__(self, prod_id, quantity):
         self.prod_id = prod_id

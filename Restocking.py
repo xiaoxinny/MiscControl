@@ -1,3 +1,9 @@
+"""
+Name: Yi Jiaxin
+Student Number: 233517S
+Tutorial Group: 6, IT2306
+"""
+
 from populateData import *
 from RestockDetail import *
 from RestockingQ import *

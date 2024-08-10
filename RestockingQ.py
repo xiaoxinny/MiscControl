@@ -1,3 +1,10 @@
+"""
+Name: Yi Jiaxin
+Student Number: 233517S
+Tutorial Group: 6, IT2306
+"""
+
+
 class RestockingQ:
     # Creates an empty Queue.
     def __init__(self, max_size):
