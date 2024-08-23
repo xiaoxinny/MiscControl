@@ -4,7 +4,8 @@ class SimpleMovieItem(
     var overview: String? = null,
     var release_date: String? = null,
     var original_langauge: String? = null,
-    var title: String? = null
+    var title: String? = null,
+    var is_favorite: Boolean = false
 ) {
 
 
@@ -14,6 +15,7 @@ class SimpleMovieItem(
         this.release_date = release_date
         this.original_langauge = original_langauge
         this.title = title
+        this.is_favorite = is_favorite
 
     }
 
